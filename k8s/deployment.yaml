@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cs-donations-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cs-donations-worker
+  template:
+    metadata:
+      labels:
+        app: cs-donations-worker
+    spec:
+      containers:
+        - name: cs-donations-worker
+          image: gabrielnatan2001/cs-donations-worker:latest
+          envFrom:
+            - configMapRef:
+                name: cs-donations-config
+            - secretRef:
+                name: cs-donations-secret

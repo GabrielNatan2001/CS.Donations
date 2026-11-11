@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cs-donations-config
+data:
+  Workers__DoacaoRecebida__Ativo: "true"
+  Workers__DoacaoRecebida__Exchange: "cs.doacao.recebida"
+  Workers__DoacaoRecebida__RoutingKey: "donations.doacao-recebida"
